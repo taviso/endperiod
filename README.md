@@ -14,7 +14,7 @@ timer interval, which might help.
 
 If you think you need this, first, run the `clockres` utility from
 [sysinternals](https://learn.microsoft.com/en-us/sysinternals/downloads/clockres)
-when your system is idle.
+when your system is idle, in particular it should not be playing video or audio.
 
 If `clockres` says the current timer interval is `15.625 ms`, this utility is
 not helpful for you and you **do not need it**.
