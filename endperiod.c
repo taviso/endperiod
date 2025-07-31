@@ -99,16 +99,22 @@ int main(int argc, char **argv)
 
     // Look up timeEndPeriod()
     if ((Address = GetProcAddress(LoadLibrary("WINMM"), "timeEndPeriod")) == NULL) {
-        LogErr("failed to find timeEndPeriod Address");
+        LogErr("Failed to find timeEndPeriod Address");
         return 1;
     }
 
     // Call it in the specified PID
     if (RemoteCallOneLongParam(ProcessId, Address, Period, &Result) == false) {
-        LogErr("could not call remote procedure, maybe permission or error or 64/32 mismatch");
+        LogErr("Could not call remote procedure, maybe permission error or 64/32 mismatch");
         return 1;
     }
 
-    fprintf(stderr, "Success (result=%d), run clockres to see if it worked\n", Result);
+    // This might mean the period was wrong, or wrong process.
+    if (Result == TIMERR_NOCANDO) {
+        LogMessage("Error, the period could not be ended (period not correct?)");
+        return 1;
+    }
+
+    LogMessage("Success (rc=%d), run clockres to see if it worked", Result);
     return 0;
 }
