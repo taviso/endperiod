@@ -3,8 +3,11 @@
 In some cases, a windows program using `timeBeginPeriod()` will mess with system
 power usage.
 
+You can read about `timeBeginPeriod()` problems in this
+[article](https://randomascii.wordpress.com/2013/07/08/windows-timer-resolution-megawatts-wasted/).
+
 This utility can force a process to end a long-running period of lowering the
-timer interval.
+timer interval, which might help.
 
 ## Usage
 
@@ -69,9 +72,6 @@ killing it. Yeah, that *might* break the process, *or* it might work fine and
 fix your battery issue (it did for me).
 
 YMMV, maybe worth a shot.
-
-You can read about `timeBeginPeriod()` in this
-[article](https://randomascii.wordpress.com/2013/07/08/windows-timer-resolution-megawatts-wasted/).
 
 
 ### Running
