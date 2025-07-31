@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <timeapi.h>
 #undef WIN32_NO_STATUS
 #include <ntstatus.h>
 
