@@ -1,9 +1,10 @@
 # endperiod
 
-In some cases, a windows program using `timeBeginPeriod()` will mess with system
-power usage.
+In some cases, a windows program using `timeBeginPeriod()` can mess with system
+power usage. This is usually a minor problem, but it can prevent your system
+from entering more aggressive sleep states.
 
-You can read about `timeBeginPeriod()` problems in this
+You can read about some example `timeBeginPeriod()` problems in this
 [article](https://randomascii.wordpress.com/2013/07/08/windows-timer-resolution-megawatts-wasted/).
 
 This utility can force a process to end a long-running period of lowering the
@@ -16,7 +17,7 @@ If you think you need this, first, run the `clockres` utility from
 when your system is idle.
 
 If `clockres` says the current timer interval is `15.625 ms`, this utility is
-not helpful for you and you don't need it.
+not helpful for you and you **do not need it**.
 
 ```
 $ clockres
@@ -34,11 +35,12 @@ Current timer interval: 15.625 ms
 
 Just type `make`.
 
-If you don't want to build it, you can download a pre-built binary from the Releases tab.
+If you don't want to build it, you can download a pre-built binary from
+[releases](https://github.com/taviso/endperiod/releases).
 
 ### Investigate
 
-If your timer interval is *lower* than 15.625, and you're experiencing
+If your timer interval is *lower* than 15.625ms, and you're experiencing
 unexplained power problems, then this might help.
 
 First, you need to figure out what process is messing with your timer
@@ -65,7 +67,7 @@ Timestamp     Event Information
 ```
 
 Hey... this `radio.exe` process is setting the timer really low! That *might*
-be a problem?
+be a problem? Maybe? There's one way to find out...
 
 This utility can force a long-running process to call `timeEndPeriod()` without
 killing it. Yeah, that *might* break the process, *or* it might work fine and
