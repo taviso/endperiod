@@ -85,7 +85,7 @@ endperiod32.exe [-p <pid> | -n <image>] [-t period]
 Attempt to end a timerPeriod in a process interfering with power management
     -p pid      : Attach to the specified process id
     -n image    : Attach to first matching process (e.g. notepad.exe)
-    -t period   : Period to end (optiona, I can guess if not specified)
+    -t period   : Period to end (optional, I can guess if not specified)
 Note: You must use the 64bit version if the target process is 64bit
 ```
 
