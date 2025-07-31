@@ -71,10 +71,9 @@ be a problem? Maybe? There's one way to find out...
 
 This utility can force a long-running process to call `timeEndPeriod()` without
 killing it. Yeah, that *might* break the process, *or* it might work fine and
-fix your battery issue (it did for me).
+fix your battery issue (it did for me), and I didn't notice any side-effects.
 
 YMMV, maybe worth a shot.
-
 
 ### Running
 
@@ -96,7 +95,10 @@ Let's use it on the radio process:
 $ endperiod32.exe -p 6400
 No period specified, current period is 1, I'll use that
 Success (result=0), run clockres to see if it worked
-> clockres
+```
+
+```
+$ clockres
 
 Clockres v2.1 - Clock resolution display utility
 Copyright (C) 2016 Mark Russinovich
