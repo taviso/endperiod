@@ -27,12 +27,18 @@ Minimum timer interval: 0.500 ms
 Current timer interval: 15.625 ms
 ```
 
+## Build
+
+Just type `make`.
+
+If you don't want to build it, you can download a pre-built binary from the Releases tab.
+
 ### Investigate
 
 If your timer interval is *lower* than 15.625, and you're experiencing
-unexplained problems, then this might help.
+unexplained power problems, then this might help.
 
-Firrst, you need to figure out what process is messing with your timer
+First, you need to figure out what process is messing with your timer
 interval. Download the
 [WDK](https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk),
 and run the `pwrtest` utility it installed.
